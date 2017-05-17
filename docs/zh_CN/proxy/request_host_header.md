@@ -1,8 +1,9 @@
-### Request Host header
+### 请求的Host头
 
-Routing a request based on its Host header is the most straightforward way to proxy traffic through Janus, as this is the intended usage of the HTTP Host header. Janus makes it easy to do so via the hosts field of the API entity.
+基于Host请求头来路由一个请求是最简单的代理方式，也满足HTTP的Host请求头的设计意图。
+Janus通过API实体的hosts字段来实现简单的配置。
 
-`hosts` accepts multiple values, which must be in an array format when specifying them via the Admin API:
+`hosts` 接收多个值, 这些值必须以数组的形式通过管理API提供。
 
 ```json
 {
@@ -10,7 +11,8 @@ Routing a request based on its Host header is the most straightforward way to pr
 }
 ```
 
-To satisfy the hosts condition of this API, any incoming request from a client must now have its Host header set to one of:
+以满足API的`hosts`条件，来自客户端的请求需将其Host请求头设置为其中之一：
+
 
 ```http
 Host: my-api.com
