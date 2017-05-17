@@ -1,8 +1,9 @@
-#### The `preserve_host` property
+#### `preserve_host` 属性
 
-When proxying, Janus's default behavior is to set the upstream request's Host header to the hostname of the API's `upstream_url` property. The `preserve_host` field accepts a boolean flag instructing Janus not to do so.
+当进行代理时，Janus的默认行为是将请求的Host头设置为API的`upstream_url`属性的hostname。
+`preserve_host`字段接收一个布尔值来告诉Janus改变这个行为。
 
-For example, when the `preserve_host` property is not changed and an API is configured like this:
+比如，当`preserve_host`未改变时，API的配置如下：
 
 ```json
 {
@@ -15,22 +16,20 @@ For example, when the `preserve_host` property is not changed and an API is conf
     }
 }
 ```
-
-A possible request from a client to Janus could be:
+来自客户端的请求可能会是：
 
 ```http
 GET / HTTP/1.1
 Host: service.com
 ```
-
-Janus would extract the Host header value from the the hostname of the API's `upstream_url` field, and would send the following request to your upstream service:
+Janus 将会从API的`upstream_url`字段的hostname取出Host请求头的值，然后发送如下请求到上游服务：
 
 ```http
 GET / HTTP/1.1
 Host: my-api.com
 ```
 
-However, by explicitly configuring your API with `preserve_host=true`:
+然而，当显性配置API`preserve_host=true`时：
 
 ```json
 {
@@ -45,14 +44,14 @@ However, by explicitly configuring your API with `preserve_host=true`:
 }
 ```
 
-And assuming the same request from the client:
+假设同样的请求从客户端发来:
 
 ```http
 GET / HTTP/1.1
 Host: service.com
 ```
 
-Janus would preserve the Host on the client request and would send the following request to your upstream service:
+Janus将保留客户端请求的Host头，然后将下面的请求发送到上游服务中：
 
 ```http
 GET / HTTP/1.1
