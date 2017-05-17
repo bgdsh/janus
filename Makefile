@@ -37,6 +37,12 @@ clean:
 	@echo "$(OK_COLOR)==> Cleaning project$(NO_COLOR)"
 	@go clean
 	@rm -rf bin $GOPATH/bin
+start-docker:
+	@docker build -t quay.io/hellofresh/janus:local-build .
+	@docker-compose down
+	@docker-compose up -d
+stop-docker:
+	@docker-compose down
 
 # cd into the GOPATH to workaround ./... not following symlinks
 _allpackages = $(shell ( go list ./... 2>&1 1>&3 | \
