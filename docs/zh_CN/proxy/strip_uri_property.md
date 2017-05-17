@@ -1,8 +1,7 @@
-##### The `strip_path` property
+##### `strip_path` 属性
 
-It may be desirable to specify a URI prefix to match an API, but not
-include it in the upstream request. To do so, use the `strip_path` boolean
-property by configuring an API like this:
+可能会需要指定一个URI前缀来匹配一个API，但是不想把它包含在上游请求中。
+为达到这个目的，使用`strip_path`这个布尔值属性以如下方式配置：
 
 ```json
 {
@@ -16,16 +15,15 @@ property by configuring an API like this:
 }
 ```
 
-Enabling this flag instructs Janus that when proxying this API, it should **not**
-include the matching URI prefix in the upstream request's URI. For example, the
-following client's request to the API configured as above:
+开启这个标记表明当Janus代理这个API时，在上游请求URI中，**不**应该包含配配的URI前缀。
+比如，下面的客户端发送请求到上面配置API：
 
 ```http
 GET /service/path/to/resource HTTP/1.1
 Host: my-api.com
 ```
 
-Will cause Janus to send the following request to your upstream service:
+Janus将会发送下面的请求到上游服务：
 
 ```http
 GET /path/to/resource HTTP/1.1
