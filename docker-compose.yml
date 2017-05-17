@@ -4,6 +4,9 @@ services:
   # Janus
   janus:
     image: quay.io/hellofresh/janus:local-build
+    environment:
+      - STORAGE_DNS=redis://janus-storage:6379
+      - DATABASE_DSN=mongodb://janus-database:27017/janus
     ports:
       - "8080:8080"
       - "8081:8081"
