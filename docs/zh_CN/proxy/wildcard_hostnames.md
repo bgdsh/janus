@@ -1,12 +1,14 @@
 #### 使用通配符主机名
 
-To provide flexibility, Janus allows you to specify hostnames with wildcards in the hosts field. Wildcard hostnames allow any matching Host header to satisfy the condition, and thus match a given API.
+为提供可伸缩性，Janus提供了在hosts字段的主机名中加入通配符的功能。
+通配符主机名认为任何匹配的Host头都满足条件，然后匹配对应的API。
 
-Wildcard hostnames must contain only one asterisk at the leftmost or rightmost label of the domain. Examples:
+通配符主机名必须只能包含一个星号，而且星号要么在域名的最左边，要么在最右边。举个例子：
 
-`*.example.org` would allow Host values such as `a.example.com` and `x.y.example.com` to match.
-`example.*` would allow Host values such as `example.com` and `example.org` to match.
-A complete example would look like this:
+`*.example.org` 将允许诸如 `a.example.com` 和 `x.y.example.com` 的Host属性匹配。
+`example.*` 将允许诸如 `example.com` 和 `example.org` 的Host属性匹配。
+
+下面是一个完整的例子：
 
 ```json
 {
@@ -15,7 +17,7 @@ A complete example would look like this:
 }
 ```
 
-Which would allow the following requests to match this API:
+将会允许下面的请求匹配这个 API:
 
 ```http
 GET / HTTP/1.1
