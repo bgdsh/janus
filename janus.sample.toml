@@ -98,8 +98,8 @@
 #   dsn = "memory://localhost"
 #
 # If you wanna use redis enable this
-# [storage]
-#   dsn = "redis://janus-storage:6379"
+  [storage]
+    dsn = "redis://janus-storage:6379"
 
 ################################################################
 # Proxy Definition Database
@@ -121,8 +121,8 @@
 #   dsn = "file:///etc/janus"
 #
 # If you want to use mongodb enable this
-# [database]
-#   dsn = "mongodb://janus-database:27017/janus"
+  [database]
+    dsn = "mongodb://janus-database:27017/janus"
 
 
 ################################################################
