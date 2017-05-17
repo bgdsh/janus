@@ -1,11 +1,9 @@
-#### Request URI
+#### 请求的URI
 
-Another way for Janus to route a request to a given upstream service is to
-specify a request URI via the `proxy.listen_path` property. To satisfy this field's
-condition, a client request's URI **must** be prefixed with one of the values
-of the `proxy.listen_path` field.
+Janus使用的另外一种把请求路由到上游服务的方式为：通过`proxy.listen_path`属性指定一个请求URI。
+为满足这个字段的条件，客户端请求的URI**必须**以`proxy.listen_path`字段的值开头。
 
-For example, in an API configured like this:
+比如，在一个以如下方式配置的请求中：
 
 ```json
 {
@@ -17,8 +15,7 @@ For example, in an API configured like this:
     }
 }
 ```
-
-The following requests would match the configured API:
+下面的请求将会匹配配置的API：
 
 ```http
 GET /hello HTTP/1.1
@@ -35,10 +32,8 @@ GET /hello/world/resource HTTP/1.1
 Host: anything.com
 ```
 
-For each of these requests, Janus detects that their URI is prefixed with one of
-the API's `proxy.listen_path` values. By default, Janus would then forward the request
-upstream with the untouched, **same URI**.
+对于每个请求，Janus检测到他们的URI以其中一个API的`proxy.listen_path`属性值匹配。
+默认情况下，Janus会把请求原样转交到上游，**保持URI不变**。
 
-When proxying with URIs prefixes, **the longest URIs get evaluated first**.
-This allow you to define two APIs with two URIs: `/service` and
-`/service/resource`, and ensure that the former does not "shadow" the latter.
+当通过前缀代理URI时，**最长的URI最先被匹配**。这使我们可以定义两个URI： `/service` 和
+`/service/resource`，确保前一个不会遮蔽后一个。
