@@ -40,7 +40,7 @@
                   quay.io/hellofresh/janus
     ```
 
-3. **检查Janus正在运行:**
+3. **检查Janus是否正在运行:**
 
     ```bash
     $ curl http://127.0.0.1:8081/
