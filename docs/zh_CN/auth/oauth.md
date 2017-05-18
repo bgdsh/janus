@@ -29,18 +29,18 @@ $ http -v GET http://localhost:8080/auth/token?grant_type=client_credentials "Au
 
 # 参考
 
-| 配置                 | 描述                                                                               |
-|-------------------------------|-------------------------------------------------------------------------------------------|
-| name                          | OAuth服务器具备唯一性的名字                                                      |
-| oauth_endpoints.authorize     | Defines the [proxy configuration](/docs/config/proxy.md) for the `authorize` endpoint     |
-| oauth_endpoints.token         | Defines the [proxy configuration](/docs/config/proxy.md) for the `token` endpoint         |
-| oauth_endpoints.info          | Defines the [proxy configuration](/docs/config/proxy.md) for the `info` endpoint          |
-| oauth_endpoints.revoke        | Defines the [proxy configuration](/docs/config/proxy.md) for the `revoke` endpoint        |
-| oauth_client_endpoints.create | Defines the [proxy configuration](/docs/config/proxy.md) for the `create` client endpoint |
-| oauth_client_endpoints.remove | Defines the [proxy configuration](/docs/config/proxy.md) for the `remove` client endpoint |
-| allowed_access_types          | The allowed access types for this oauth server                                            |
-| allowed_authorize_types       | The allowed authorize types for this oauth server                                         |
-| auth_login_redirect           | The auth login redirect URL                                                               |
-| secrets                       | A map of client_id: client_secret that allows you to authenticate only with the client_id |
-| token_strategy.name           | The token strategy for this server. Could be `storage` or `jwt`                           |
-| token_strategy.settings.secret| If you use JWT you should set your secret or private certificate string here              |
+| 配置                           | 描述                                                      |
+|-------------------------------| ------------------------------------------------------------|
+| name                          | OAuth服务器具备唯一性的名字                                     |
+| oauth_endpoints.authorize     | 为 `authorize` 路径定义 [代理配置](/docs/config/proxy.md)      |
+| oauth_endpoints.token         | 为 `token` 路径定义 [代理配置](/docs/config/proxy.md)          |
+| oauth_endpoints.info          | 为 `info` 路径定义 [代理配置](/docs/config/proxy.md)           |
+| oauth_endpoints.revoke        | 为 `revoke` 路径定义 [代理配置](/docs/config/proxy.md)         |
+| oauth_client_endpoints.create | 为 `create` 路径定义 [代理配置](/docs/config/proxy.md)         |
+| oauth_client_endpoints.remove | 为 `remove` 路径定义 [代理配置](/docs/config/proxy.md)         |
+| allowed_access_types          | 认证服务器允许的访问类型                                        |
+| allowed_authorize_types       | 认证服务器允许的授权类型                                        |
+| auth_login_redirect           | 认证跳转地址                                                  |
+| secrets                       | 一个client_id: client_secret映射，可以只提供client_id便能完成认证 |
+| token_strategy.name           | 这个服务器的token模式. 可以使`storage`或`jwt`                   |
+| token_strategy.settings.secret| 如果使用jwt，需要把密钥或者私有认证字符串放在这里                   |
