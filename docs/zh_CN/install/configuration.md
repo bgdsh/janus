@@ -1,4 +1,4 @@
-# Configuration
+# 配置
 
-You have multiple ways of configuring Janus. You can choose from `environment variables`, `YAML`, `JSON` or `TOML` files.
-Our recomendation is to use TOML configuration, since it makes it easier to read. You can check an example of the configuration [here](/janus.sample.toml)
+有很多种方法配置Janus. 可以使用`环境变量`，也可以使用`YAML`、 `JSON` 或 `TOML` 三种文件之一。
+我们推荐使用简单易读的TOML配置。你可以在[这里](/janus.sample.toml)查看配置示例。
